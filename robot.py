@@ -1,7 +1,5 @@
 import pybullet as p
-import pybullet_data
 import pyrosim.pyrosim as pyrosim
-import constants as c
 
 from sensor import SENSOR
 from motor import MOTOR
@@ -29,20 +27,23 @@ class ROBOT:
 
     def Prepare_To_Act(self):
         for jointName in pyrosim.jointNamesToIndices:
-            self.motors[jointName] = MOTOR(jointName, c.amplitude, c.frequency, c.offset, c.rad)
+            self.motors[jointName] = MOTOR(jointName)
 
-    def Act(self, robot, t):
+    def Act(self, robot, desiredAngle):
         for neuronName in self.nn.Get_Neuron_Names():
             if self.nn.Is_Motor_Neuron(neuronName):
-                print(neuronName)
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
-                print(jointName)
                 desiredAngle = self.nn.Get_Value_Of(neuronName)
-                print(desiredAngle)
-
-        # for motor in self.motors:
-        #     self.motors[motor].Set_Value(robot, t)
+                self.motors[jointName].Set_Value(robot, desiredAngle)
 
     def Think(self):
         self.nn.Update()
-        self.nn.Print()
+        # self.nn.Print()
+
+    def Get_Fitness(self):
+        stateOfLinkZero = p.getLinkState(self.robot,0)
+        positionOfLinkZero = stateOfLinkZero[0]
+        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        
+        f = open("fitness.txt", "w")
+        f.write(str(xCoordinateOfLinkZero))
