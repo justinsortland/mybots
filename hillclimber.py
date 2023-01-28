@@ -30,8 +30,8 @@ class HILL_CLIMBER:
             self.parent = self.child
 
     def Print(self):
-        fitnessPrint = f"Parent: {self.parent.fitness}   Child: {self.child.fitness}"
-        print(fitnessPrint)
+        print("Parent: ", self.parent.fitness, " Child: ", self.child.fitness)
 
     def Show_Best(self):
-        pass
+        mode = "GUI"
+        self.parent.Evaluate(mode)

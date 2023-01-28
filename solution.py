@@ -8,6 +8,10 @@ class SOLUTION:
         self.weights = numpy.random.rand(3, 2)*2 - 1
 
     def Evaluate(self, mode):
+        self.Create_World()
+        self.Create_Body()
+        self.Create_Brain()
+
         command = f"python3 simulate.py {mode}"
         os.system(command)
         with open('fitness.txt', 'r') as fitnessFile:
@@ -16,8 +20,8 @@ class SOLUTION:
         fitnessFile.close()
 
     def Mutate(self):
-        randomRow = random.randint(0,2)
-        randomColumn = random.randint(0,1)
+        randomRow = random.randint(0, len(self.weights) - 1)
+        randomColumn = random.randint(0, len(self.weights[0]) - 1)
         self.weights[randomRow][randomColumn] = random.random()*2 - 1
 
     def Create_World(self):
@@ -47,11 +51,11 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron(name=3, jointName="Torso_BackLeg")
         pyrosim.Send_Motor_Neuron(name=4, jointName="Torso_FrontLeg")
 
-        pyrosim.Send_Synapse(sourceNeuronName=0, targetNeuronName=3, weight=-1.0)
-        pyrosim.Send_Synapse(sourceNeuronName=1, targetNeuronName=3, weight=-1.0)
+        # pyrosim.Send_Synapse(sourceNeuronName=0, targetNeuronName=3, weight=-1.0)
+        # pyrosim.Send_Synapse(sourceNeuronName=1, targetNeuronName=3, weight=-1.0)
 
-        pyrosim.Send_Synapse(sourceNeuronName=0, targetNeuronName=4, weight=-1.0)
-        pyrosim.Send_Synapse(sourceNeuronName=1, targetNeuronName=4, weight=-1.0)
+        # pyrosim.Send_Synapse(sourceNeuronName=0, targetNeuronName=4, weight=-1.0)
+        # pyrosim.Send_Synapse(sourceNeuronName=1, targetNeuronName=4, weight=-1.0)
 
         for currentRow in range(3):
             for currentColumn in range(2):
