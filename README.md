@@ -15,6 +15,6 @@ python3 search.py
 ```
 
 References:
--Northwestern University: CS 396 - AI Life
--Education in Evolutionary Robotics
--Pyrosim
+- Northwestern University: CS 396 - AI Life
+- Education in Evolutionary Robotics
+- Pyrosim
