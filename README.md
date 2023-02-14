@@ -9,7 +9,7 @@ In order to run one random simulation, run the following command:
 ```
 python search.py
 ```
-
+or alternatively,
 ```
 python3 search.py
 ```
