@@ -194,9 +194,8 @@ class SOLUTION:
                 jointPosX = cubeSizeX
                 jointPos = [jointPosX, jointPosY, jointPosZ]
 
-                cubePosX += jointPosX / 2
-                cubePosY += jointPosY
-                cubePosZ += jointPosZ 
+                cubePosX = cubeSizeX/2
+                cubePosZ = cubeSizeZ/2
                 cubePos = [cubePosX, cubePosY, cubePosZ]
 
         pyrosim.End()
