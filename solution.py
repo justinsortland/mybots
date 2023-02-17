@@ -191,11 +191,10 @@ class SOLUTION:
                 cubeSizeZ = random.uniform(0.8, 1.2)
                 cubeSize = [cubeSizeX, cubeSizeY, cubeSizeZ]
 
+                cubePosX = cubeSizeX/2
                 jointPosX = cubeSizeX
                 jointPos = [jointPosX, jointPosY, jointPosZ]
 
-                cubePosX = cubeSizeX/2
-                cubePosZ = cubeSizeZ/2
                 cubePos = [cubePosX, cubePosY, cubePosZ]
 
         pyrosim.End()
