@@ -106,7 +106,8 @@ def Prepare_To_Simulate(bodyID):
 
     Prepare_Joint_Dictionary(bodyID)
 
-def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
+# def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1],colorString='    <color rgba="0 1.0 1.0 1.0"/>',colorName='Cyan'):
+def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1],colorString="0 1.0 1.0 1.0",colorName='Cyan'):
 
     global availableLinkIndex
 
@@ -120,7 +121,7 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
         links.append(link)
     else:
-        link = LINK_URDF(name,pos,size)
+        link = LINK_URDF(name,pos,size,colorString,colorName)
 
         links.append(link)
 
@@ -134,11 +135,12 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
     availableLinkIndex = availableLinkIndex + 1
 
-def Send_Joint(name,parent,child,type,position):
+def Send_Joint(name,parent,child,type,position,jointAxis):
 
     joint = JOINT(name,parent,child,type,position)
 
-    joint.Save(f)
+    joint.Save(f,jointAxis)
+
 
 def Send_Motor_Neuron(name,jointName):
 

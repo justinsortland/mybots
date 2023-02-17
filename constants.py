@@ -17,3 +17,9 @@ frontLegFrequency = 10
 frontLegPhaseOffset = 0
 
 numberOfGenerations = 10
+
+gravityX = 0
+gravityY = 0
+gravityZ = -9.8
+
+motorJointRange = 0.7

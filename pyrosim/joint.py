@@ -16,7 +16,8 @@ class JOINT:
 
         self.depth = 1
 
-    def Save(self,f):
+
+    def Save(self,f,jointAxis):
 
         Save_Whitespace(self.depth,f)
         f.write('<joint name="' + self.name + '" type="' + self.type + '">' + '\n')
@@ -32,6 +33,9 @@ class JOINT:
         f.write('   <origin rpy="0 0 0" xyz="' + originString + '" />\n')
 
         Save_Whitespace(self.depth,f)
+        f.write(' <axis xyz="' + jointAxis + '"/>\n')
+
+        Save_Whitespace(self.depth,f)
         f.write('   <axis xyz="0 1 0"/>\n')
 
         Save_Whitespace(self.depth,f)
@@ -39,4 +43,7 @@ class JOINT:
 
         Save_Whitespace(self.depth,f)
         f.write('</joint>' + '\n')
+        
+
+
 

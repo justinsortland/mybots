@@ -2,8 +2,8 @@ import pybullet as p
 import pybullet_data
 
 class WORLD:
-    def __init__(self):    
-        self.physicsClient = p.connect(p.GUI)
+    def __init__(self, physicsClient):    
+        self.physicsClient = physicsClient
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
         self.planeId = p.loadURDF("plane.urdf")

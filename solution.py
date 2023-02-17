@@ -59,8 +59,6 @@ class SOLUTION:
         self.myID = id
         
     def Create_World(self):
-        while not os.path.exists("world.sdf"):
-            time.sleep(c.sleepTime)
 
         pyrosim.Start_SDF("world.sdf")
         pyrosim.Send_Cube(name="Box", pos=[2, 2, 0.5] , size=[1, 1, 1], colorString='    <color rgba="0 1.0 1.0 1.0"/>', colorName='Grey')
@@ -174,9 +172,9 @@ class SOLUTION:
         for i in range(self.num_cubes):
             cubeName = "Segment" + str(i) 
             if self.linksWithSensors[i] == 1:
-                pyrosim.Send_Cube(name=cubeName, pos=cubePos, size=cubeSize, colorString='    <color rgba="0 255.0 0 1.0"/>', colorName='Green')
+                pyrosim.Send_Cube(name=cubeName, pos=cubePos, size=cubeSize, colorString="0 255.0 0 1.0", colorName='Green')
             else:
-                pyrosim.Send_Cube(name=cubeName, pos=cubePos, size=cubeSize, colorString='    <color rgba="0 0 255.0 1.0"/>', colorName='Blue')
+                pyrosim.Send_Cube(name=cubeName, pos=cubePos, size=cubeSize, colorString="0 0 255.0 1.0", colorName='Blue')
 
             if i != (self.num_cubes-1):
                 parentName = cubeName
@@ -191,17 +189,16 @@ class SOLUTION:
                 cubeSizeZ = random.uniform(0.8, 1.2)
                 cubeSize = [cubeSizeX, cubeSizeY, cubeSizeZ]
 
+                cubePosX = cubeSizeX/2
                 jointPosX = cubeSizeX
                 jointPos = [jointPosX, jointPosY, jointPosZ]
 
-                cubePosX += jointPosX / 2
-                cubePosY += jointPosY
-                cubePosZ += jointPosZ 
                 cubePos = [cubePosX, cubePosY, cubePosZ]
 
         pyrosim.End()
 
     def Generate_Snake_Brain(self):
+
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
 
         for i in range(self.num_sensors):
