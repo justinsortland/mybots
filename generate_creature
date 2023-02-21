@@ -1,0 +1,188 @@
+import pyrosim.pyrosim as pyrosim
+import random
+import numpy
+import os
+import time
+import constants as c
+
+class SOLUTION:
+    def __init__(self, myID):
+        self.myID = myID
+
+        self.name_id = 0
+        self.segment_id = 0
+        
+        self.num_torso_cubes = random.randint(5,8)
+
+        self.linksWithSensors = []
+        for i in range(self.num_torso_cubes):
+            self.linksWithSensors.append(random.randint(0,1))
+
+        self.num_sensors = 0
+        for link in self.linksWithSensors:
+            if self.linksWithSensors[link] == 1:
+                self.num_sensors += 1
+
+        self.linksWithLegs = [1,1]
+        for i in range(self.num_torso_cubes-2):
+            self.linksWithLegs.append(0)
+
+        while self.linksWithLegs[0] == 1 or self.linksWithLegs[-1] == 1:
+            random.shuffle(self.linksWithLegs)
+
+        self.num_motors = self.num_torso_cubes - 1 
+
+        self.weights = numpy.random.rand(self.num_sensors, self.num_motors)*3 - 1
+
+        self.numOfLeg = 0
+
+        self.linkNames = []
+
+    def Start_Simulation(self, mode):
+        self.Generate_World()
+        self.Generate_Creature()
+        self.Generate_Creature_Brain()
+        # os.system("python3 simulate.py " + mode + " " + str(self.myID))
+        os.system("python3 simulate.py " + mode + " " + str(self.myID))
+
+
+    def Generate_World(self):
+        pyrosim.Start_SDF("world.sdf")
+        pyrosim.Send_Cube(name="Box", pos=[2, 2, 0.5] , size=[1, 1, 1], colorString='    <color rgba="0 1.0 1.0 1.0"/>', colorName='Grey')
+        pyrosim.End()
+        
+    def Generate_Creature(self):
+        pyrosim.Start_URDF("body.urdf")
+        
+        # cubePosition = [random.uniform(-1,1),random.uniform(-1,1),random.uniform(7,8)]
+        # cubeSize = [random.uniform(0.5,1.5),random.uniform(0.5,1.5),random.uniform(0.5,1.5)]
+        # jointPosition = [cubePosition[0]+(cubeSize[0]/2),cubePosition[1],cubePosition[2]]
+
+        torsoCubePosition = [0,0,1]
+        torsoJointPosition =[0.5,0,0.5] 
+        torsoCubeSize = [1,1,1]
+        
+        # for i in range(self.num_torso_cubes):
+        #     cubeName = "Torso" + str(i)
+        #     self.linkNames.append(cubeName)
+        #     if self.linksWithSensors[i] == 1:
+        #         pyrosim.Send_Cube(name=cubeName, pos=torsoCubePosition, size=torsoCubeSize, colorString="0 255.0 0 1.0", colorName='Green')
+        #     else:
+        #         pyrosim.Send_Cube(name=cubeName, pos=torsoCubePosition, size=torsoCubeSize, colorString="0 0 255.0 1.0", colorName='Blue')
+
+            if self.linksWithLegs[i] == 1:
+                faces = [[torsoCubePosition[0], torsoCubePosition[1] + (torsoCubeSize[1]/2), torsoCubePosition[2]],
+                         [torsoCubePosition[0], torsoCubePosition[1], torsoCubePosition[2] + (torsoCubeSize[2]/2)]]
+                chosenDirection = random.choice(faces)
+                k = faces.index(chosenDirection)
+
+                if k == 0:
+                    index = 1
+                else:
+                    index = 2
+
+                numLegSegments = random.randint(1,3)
+
+                legLinksWithSensors = []
+                for n in range(numLegSegments):
+                    self.linksWithSensors.append(random.randint(0,1))
+                    legLinksWithSensors.append(random.randint(0,1))
+                    self.num_sensors += 1
+
+                self.num_motors += numLegSegments
+                self.weights = numpy.random.rand(self.num_sensors, self.num_motors)*3 - 1
+
+                if index == 1:
+                    legJointPosition = [torsoJointPosition[0], torsoCubeSize[index], torsoJointPosition[0]]
+                else:
+                    legJointPosition = [torsoJointPosition[0], torsoJointPosition[1], torsoCubeSize[index]]
+
+                parentName = cubeName 
+                childName = "Leg" + str(self.numOfLeg)
+                jointName = parentName + "_" + childName
+                axis = str(random.uniform(-1,1)) + " " + str(random.uniform(-1,1)) + " " + str(random.uniform(-1,1))
+                pyrosim.Send_Joint(name=jointName, parent=parentName, child=childName, type="revolute", position=legJointPosition, jointAxis=axis)
+ 
+                legCubeSize = [random.uniform(0.5,1.5),random.uniform(0.5,1.5),random.uniform(0.5,1.5)]
+                legJointPosition[index] = legCubeSize[index]
+
+                if index == 1:
+                    legCubePosition = [torsoCubePosition[0], legCubeSize[index]/2, torsoCubePosition[2]]
+                else:
+                    legCubePosition = [torsoCubePosition[0], torsoCubePosition[1], legCubeSize[index]/2]
+
+                for j in range(numLegSegments):
+                    legCubeName = "Leg" + str(self.numOfLeg) + "Part" + str(j)
+                    self.linkNames.append(legCubeName)
+                    if legLinksWithSensors[j] == 1:
+                        pyrosim.Send_Cube(name=cubeName, pos=legCubePosition, size=legCubeSize, colorString="0 255.0 0 1.0", colorName='Green')
+                    else:
+                        pyrosim.Send_Cube(name=cubeName, pos=legCubePosition, size=legCubeSize, colorString="0 0 255.0 1.0", colorName='Blue')
+
+                    if j != (numLegSegments-1):
+                        parentName = legCubeName 
+                        childName = "Leg" + str(self.numOfLeg) + "Part" + str(j+1)
+                        jointName = parentName + "_" + childName
+                        axis = str(random.uniform(-1,1)) + " " + str(random.uniform(-1,1)) + " " + str(random.uniform(-1,1))
+                        pyrosim.Send_Joint(name=jointName, parent=parentName, child=childName, type="revolute", position=legJointPosition, jointAxis=axis)
+    
+                        legCubeSize = [random.uniform(0.5,1.5),random.uniform(0.5,1.5),random.uniform(0.5,1.5)]
+                        legCubePosition[index] = legCubeSize[index]/2
+                        legJointPosition[index] = legCubeSize[index]
+
+                self.numOfLeg += 1
+
+        #     if i != (self.num_torso_cubes-1):
+        #         parentName = cubeName
+        #         childName = "Torso" + str(i+1)
+        #         jointName = parentName + "_" + childName
+        #         axis = str(random.uniform(-1,1)) + " " + str(random.uniform(-1,1)) + " " + str(random.uniform(-1,1))                
+        #         pyrosim.Send_Joint(name=jointName, parent=parentName, child=childName, type="revolute", position=torsoJointPosition, jointAxis=axis)
+
+        #         torsoCubeSize = [random.uniform(0.5,1.5),random.uniform(0.5,1.5),random.uniform(0.5,1.5)]
+        #         torsoCubePosition[0] = torsoCubeSize[0]/2
+        #         torsoJointPosition[0] = torsoCubeSize[0]
+
+        # pyrosim.End()
+
+    def Generate_Creature_Brain(self):
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+
+        # for i in range(self.num_sensors):
+        #     sensorNeuronName = self.name_id
+        #     sensorNeuronLinkName = "Torso" + str(self.name_id)
+        #     pyrosim.Send_Sensor_Neuron(name=sensorNeuronName, linkName=sensorNeuronLinkName)
+        #     self.name_id += 1
+
+        for i,link in enumerate(self.linkNames):
+            if self.linksWithSensors[i] == 1 and self.linkNames[i][0:2] == "Leg":
+                sensorNeuronName = self.name_id
+                sensorNeuronLinkName = link
+                pyrosim.Send_Sensor_Neuron(name=sensorNeuronName, linkName=sensorNeuronLinkName)
+                self.name_id += 1     
+            elif self.linksWithSensors[i] == 1 and self.linkNames[i][0:4] == "Torso":
+                sensorNeuronName = self.name_id
+                sensorNeuronLinkName = link
+                pyrosim.Send_Sensor_Neuron(name=sensorNeuronName, linkName=sensorNeuronLinkName)
+                self.name_id += 1
+
+        for i,link in enumerate(self.linkNames):
+            if self.linkNames[i][0:2] == "Leg":
+                motorNeuronName = self.name_id
+                motorNeuronJointName = link
+                pyrosim.Send_Motor_Neuron(name=motorNeuronName, jointName=motorNeuronJointName)
+                self.name_id += 1
+            elif self.linkNames[i][0:4] == "Torso":
+                motorNeuronName = self.name_id
+                motorNeuronJointName = link
+                pyrosim.Send_Motor_Neuron(name=motorNeuronName, jointName=motorNeuronJointName)
+                self.name_id += 1
+
+        for currentRow in range(self.num_sensors):
+            for currentColumn in range(self.num_motors):
+                pyrosim.Send_Synapse(sourceNeuronName=currentRow, targetNeuronName=currentColumn+self.num_sensors, weight=self.weights[currentRow][currentColumn])
+
+        pyrosim.End()
+
+solution = SOLUTION(0)
+solution.Start_Simulation("GUI")
