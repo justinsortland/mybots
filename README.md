@@ -7,8 +7,6 @@ In this assignment, I create a file 3d_creature.py, based on solution.py, so tha
 
 The code randomly generates a set of links and then picking from random links in that set of links, randomly generates another set of links branching off that link. The resulting creature's morphology typically resembles a tree-shape, with some variety, as shown below.
 
-INSERT IMAGE1 AND IMAGE2
-
 <p align="center">                                      
 <img src="Images/3DCreature1.png" width=250 height=250>                     
 </p>                                                  
