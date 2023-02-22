@@ -9,6 +9,10 @@ The code randomly generates a set of links and then picking from random links in
 
 INSERT IMAGE1 AND IMAGE2
 
+<p align="left">                                      <p align="right">
+<img src="Images/3DCreature1.png>                     <img src="Images/3DCreature2.png">
+</p>                                                  </p>
+
 
 Additionally, below I have drawn out an example of what each cube looks like with the associated dimensions of its faces. For instance, the initial cube is shown below.
 
