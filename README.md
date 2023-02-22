@@ -9,11 +9,11 @@ The code randomly generates a set of links and then picking from random links in
 
 INSERT IMAGE1 AND IMAGE2
 
-<p align="left">                                      
-<img src="Images/3DCreature1.png>                     
+<p align="center">                                      
+<img src="Images/3DCreature1.png">                     
 </p>                                                  
 
-<p align="right">
+<p align="center">
 <img src="Images/3DCreature2.png">
 </p>
                                                                                        
