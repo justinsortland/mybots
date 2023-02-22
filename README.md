@@ -16,7 +16,7 @@ Additionally, below I have drawn out an example of what each cube looks like wit
 
 In essence, the joints are connected via synapses, which are reprsented by the colored connections below. Each synpase bijectively connects one sensor neuron to exactly one motor neuron, and has a syntaptic weight associated with it. The syntaptic weight is usually a random decimal number such as 0.1342785 as shown below.
 
-<img src="Images/SynapseDrawing.jpg" width=300 height=500>
+<img src="Images/SynapseDrawing.jpg" width=400 height=500>
 
 In order to run one random simulation, run the following command:
 ```
