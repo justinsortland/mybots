@@ -12,7 +12,7 @@ INSERT IMAGE1 AND IMAGE2
 
 Additionally, below I have drawn out an example of what each cube looks like with the associated dimensions of its faces. For instance, the initial cube is shown below.
 
-![Cube](Images/CubeDrawing.jpg)
+![Cube](Images/CubeDrawing.jpg){width=250}
 
 In essence, the joints are connected via synapses, which are reprsented by the colored connections below. Each synpase bijectively connects one sensor neuron to exactly one motor neuron, and has a syntaptic weight associated with it. The syntaptic weight is usually a random decimal number such as 0.1342785 as shown below.
 
