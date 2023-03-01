@@ -3,7 +3,9 @@
 In this assignment, I used solution.py to generate the 3D creature from asssignment 7, which has the following:
 1. Random number of links/cubes
 2. Random number of sensor neurons, where cubes with sensor neurons are denoted by a green coloring, whereas cubes without sensors neurons are denoted by a blue coloring
-3. Random number of motor neurons 
+3. Random number of motor neurons
+
+However, unlike Assignment 7, I re-added the fitness function from the earlier PHC, where the creature evolves by moving as far as it can in the x-direction as its fitness function.
 
 The code randomly generates a set of links and then picking from random links in that set of links, randomly generates another set of links branching off that link. The resulting creature's morphology typically resembles a tree-shape, with some variety, as shown below.
 
