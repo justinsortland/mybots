@@ -24,6 +24,27 @@ In essence, the joints are connected via synapses, which are reprsented by the c
 <img src="Images/SynapseDrawing.jpg" width=400 height=500>
 </p>
 
+Here are my five fitness curves, each one corresponding to a search.py run:
+<p align="center">
+<img src="Images/PHC1.jpg" width=400 height=500>
+</p>
+
+<p align="center">
+<img src="Images/PHC2.jpg" width=400 height=500>
+</p>
+
+<p align="center">
+<img src="Images/PHC3.jpg" width=400 height=500>
+</p>
+
+<p align="center">
+<img src="Images/PHC4.jpg" width=400 height=500>
+</p>
+
+<p align="center">
+<img src="Images/PHC5.jpg" width=400 height=500>
+</p>
+
 Here's a link to my video, which shows the difference between the random and evolved creature (which was cut for time to keep the video ~10 seconds):
 https://youtu.be/0P5wL5jHgcE
 
