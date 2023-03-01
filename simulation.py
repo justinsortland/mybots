@@ -44,13 +44,13 @@ class SIMULATION:
             self.robot.Act(self.robot.robot, i)            
 
             if self.directOrGUI == "GUI":
-                time.sleep(1/500)
+                time.sleep(c.sleepTime)
 
             # time.sleep(1/500)
             # print(i)
     
-    def Get_Fitness(self):
-        self.robot.Get_Fitness()
+    def Get_Fitness(self, id):
+        self.robot.Get_Fitness(id)
     
     def __del__(self):
         p.disconnect()

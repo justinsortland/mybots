@@ -1,0 +1,79 @@
+{
+  "Tapas Barcelona": {
+        "Tapas Frias": {
+            "Patatas Alioli": 5.50,
+            "Tortilla Espanola": 6.25,
+            "Aceitunas Alinadas": 6.50,
+            "Esparragos con Tres Salsa": 6.75,
+            "Gazpacho Andaluz": 6.50,
+            "Alcachofas a la Vinagreta": 6.50,
+            "Delizia de Queso": 7.50,
+            "Jamon y Pan de Tomate": 8.75,
+            "Salmon Ahunmado": 8.95,
+            "Aguacate con Cagrejo": 8.95,
+            "Canelon de Atun": 4.95,
+            "Salpicon de Mariscos": 7.50,
+            "Secreto de Pollo Relleno": 5.95
+         },
+        "Ensaladas y Sopas": {
+            "De Espinacas": 7.95,
+            "Ensalada de la Casa": 7.25,
+            "De Remolachas": 7.50,
+            "De Jicama": 7.50,
+            "Caprese": 7.50,
+            "Guiso de Lentejas": 6.50,
+            "Potaje de Alubias Negras": 6.50
+         },
+        "Tapas Caliente": {
+            "Alas de Pollo Picante": 5.95,
+            "Queso de Cabra con Tomate": 8.95,
+            "Datiles a la Sevillana": 7.50,
+            "Croquetas del Dia": 6.50,
+            "Patatas Bravas": 5.50,
+            "Rigatoni con Salchiha": 8.50,
+            "Farfalle con Pollo, Setas y Tomates": 8.50,
+            "Parilla de Vegetales del Tiempo": 6.95,
+            "Pollo al Whisky": 8.25,
+            "Salmon con Esparragos": 8.95,
+            "Albondigas con Tomate": 8.95,
+            "Filete con Patatas": 11.95,
+            "Chuletitas de Cordero": 11.95,
+            "Lomo de Cerdo al Pedro Ximenez": 7.95,
+            "Chipirones Plancha": 8.25,
+            "Pincho de Pollo": 7.95,
+            "Pincho de Solomillo": 8.95,
+            "Mero con Espinacas al Limon": 8.95,
+            "Berenjenas Rellenas con Queso": 7.75,
+            "Pulpito a la Plancha": 8.95,
+            "Empanadilla de Cordero": 7.95,
+            "Gambas al Ajillo": 8.50,
+            "Mejillones Plancha": 9.50,
+            "Fritura de Mar": 8.95,
+            "Hojaldre Catalan": 8.95,
+            "Cabrillas Barcelona": 7.25,
+            "Pisto Manchego": 6.50
+         },
+        "Paellas": {
+            "Vegetariana Paella": 18.95,
+            "Valenciana Paella": 19.95, 
+            "Catalana Paellal": 20.95
+         },
+        "Pizzas": {
+            "Barcelona Pizza": 9.25,
+            "Dali Pizza": 9.25,
+            "Miro Pizza": 8.95,
+            "Gaudi Pizza": 9.50
+         },
+        "Postres": {
+            "Flan": 5.95,
+            "Tarrina de Chocolate": 6.95,
+            "Pitisu con Helado": 6.95,
+            "Arroz Con Leche": 5.25,
+            "Platano con Caramelo y Helado": 6.95,
+            "Pera Rellena de Chocolate Blanco": 7.50,
+            "Bizcocho Borracho": 7.50,
+            "Uvas de San Benigno": 5.95,
+            "Crema Catalana": 6.50
+         }
+    }
+}

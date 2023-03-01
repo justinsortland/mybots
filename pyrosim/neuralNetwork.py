@@ -50,6 +50,15 @@ class NEURAL_NETWORK:
     def Get_Value_Of(self, neuronName):
 
         return self.neurons[neuronName].Get_Value()
+    
+    def Generate_List_Of_Sensor_Neuron_Links(self):
+        listOfSensorNeurons = []
+        for neuron in self.neurons:
+            if self.neurons[neuron].Is_Sensor_Neuron():
+                linkName = self.neurons[neuron].Get_Link_Name()
+                listOfSensorNeurons.append(linkName)
+        return listOfSensorNeurons
+
 
 # ---------------- Private methods --------------------------------------
 

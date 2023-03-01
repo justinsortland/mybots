@@ -72,7 +72,7 @@ def Prepare_Link_Dictionary(bodyID):
 
         jointName = jointInfo[1]
 
-        jointName = jointName.decode("utf-8")
+        jointName = jointName.decode('UTF-8')
 
         jointName = jointName.split("_")
 
@@ -86,6 +86,8 @@ def Prepare_Link_Dictionary(bodyID):
 
            linkNamesToIndices[rootLinkName] = -1 
 
+    # breakpoint()
+        
 def Prepare_Joint_Dictionary(bodyID):
 
     global jointNamesToIndices

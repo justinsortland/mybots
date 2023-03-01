@@ -16,10 +16,13 @@ frontLegAmplitude = numpy.pi/4
 frontLegFrequency = 10
 frontLegPhaseOffset = 0
 
-numberOfGenerations = 10
+sleepTime = 1/1000
+
+populationSize = 7
+numberOfGenerations = 60
 
 gravityX = 0
 gravityY = 0
 gravityZ = -9.8
 
-motorJointRange = 0.7
+motorJointRange = 0.4
