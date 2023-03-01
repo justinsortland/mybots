@@ -1,6 +1,6 @@
-# Assignment 7 - 3D Creature
+# Assignment 8 - Evolved 3D Creature
 
-In this assignment, I create a file 3d_creature.py, based on solution.py, so that it generated a 3D creature with:
+In this assignment, I used solution.py to generate the 3D creature from asssignment 7, which has the following:
 1. Random number of links/cubes
 2. Random number of sensor neurons, where cubes with sensor neurons are denoted by a green coloring, whereas cubes without sensors neurons are denoted by a blue coloring
 3. Random number of motor neurons 
