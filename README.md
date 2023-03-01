@@ -24,7 +24,7 @@ In essence, the joints are connected via synapses, which are reprsented by the c
 <img src="Images/SynapseDrawing.jpg" width=400 height=500>
 </p>
 
-Here are my five fitness curves, each one corresponding to a search.py run:
+Here are my five fitness curves, each one corresponding to a search.py run where I ran each simulation with a population size of 7 for 75 generations:
 <p align="center">
 <img src="Images/PHC1.png" width=400 height=300>
 </p>
