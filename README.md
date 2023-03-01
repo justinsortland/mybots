@@ -29,11 +29,11 @@ https://youtu.be/0P5wL5jHgcE
 
 In order to run one random simulation, run the following command:
 ```
-python 3d_creature.py
+python solution.py
 ```
 or alternatively,
 ```
-python3 3d_creature.py
+python3 solution.py
 ```
 
 References:
