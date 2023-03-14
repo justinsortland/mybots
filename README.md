@@ -1,53 +1,79 @@
-# Assignment 8 - Evolved 3D Creature
+# Final Project 
 
-In this assignment, I used solution.py to generate the 3D creature from asssignment 7, which has the following:
+In this assignment, I used solution.py to generate the 3D creature from asssignments 7-8, which has the following:
 1. Random number of links/cubes
 2. Random number of sensor neurons, where cubes with sensor neurons are denoted by a green coloring, whereas cubes without sensors neurons are denoted by a blue coloring
 3. Random number of motor neurons 
 
-The code randomly generates a set of links and then picking from random links in that set of links, randomly generates another set of links branching off that link. The resulting creature's morphology typically resembles a tree-shape, with some variety, as shown below.
+The code randomly generates a set of links and then picking from random links in that set of links, randomly generates another set of links branching off that link. The resulting creature's morphology typically resembles a random blob of cubes as shown below.
 
 <p align="center">                                      
 <img src="Images/3DCreature1.png" width=250 height=250>                     
 </p>                                                  
 
-                                                                                       
-Additionally, below I have drawn out the process through which the 3D creature is randomly generated, along with the possible random number of links for the torso and the randomly generated legs.
+# Teaser GIF
+Here is a fun GIF showing how the creature moves.
+<p align="center">                                      
+<img src="Images/3DCreature1.png" width=250 height=250>                     
+</p>  
+                                                                              
+# Brain and Body Generation
+Everything in regards to both body and brain generation was randomized from the number of cubes to the number of sensors and motors for the creature. The creature first starts out at an initial position of [0,0,1] with a randomized size vector as well as the joint position being based on the randomized size vector. Then, the following properties were randomized:
+* The number of torso links
+* The number of leg links
+* The number of legs
+* The joint axis of the joints
+* The size of each link
+* The position of the center of the link (with respect to the joint connecting previous link to current link)
+* The position of the next joint (with respect to the previous joint)
+* The probability of the link having a sensor (75%)
+* The probability of the link having a motor (85%)
+
+Additionally, I have provided detailed diagrams of both brain and body generation below.
 
 <p align="center">
-<img src="Images/3DCreatureGeneration.jpg" width=250 height=250>
-</p>
-
-In essence, the joints are connected via synapses, which are reprsented by the colored connections below. Each synpase bijectively connects one sensor neuron to exactly one motor neuron, and has a syntaptic weight associated with it. The syntaptic weight is usually a random decimal number such as 0.1342785 as shown below.
-
-<p align="center">
-<img src="Images/SynapseDrawing.jpg" width=400 height=500>
-</p>
-
-Here are my five fitness curves, each one corresponding to a search.py run where I ran each simulation with a population size of 7 for 75 generations:
-<p align="center">
-<img src="Images/PHC1.png" width=400 height=300>
-</p>
-
-<p align="center">
-<img src="Images/PHC2.png" width=400 height=300>
-</p>
-
-<p align="center">
-<img src="Images/PHC3.png" width=400 height=300>
+<img src="Images/BodyGeneration.png" width=400 height=300>
 </p>
 
 <p align="center">
-<img src="Images/PHC4.png" width=400 height=300>
+<img src="Images/BrainGeneration.png" width=400 height=300>
 </p>
+
+# Mutation and Evolution
+
+There were three possible mutations that I implemented for my creature (including mutation combinations):
+
+50% probability for brain mutation
+* Altering one of the synapse weights
+* Re-randomizing sensor placement throughout the creature
+
+50% probability for body mutation
+* 25% probability to add or remove a link:
+  * 12.5% probability to add a link to an already existing link
+  * 12.5% probability to remove an already existing link, making sure it has no other links after it or a leg branching out of it) 
+
+# Fitness Curve
+Here is my graph containing my ten fitness curves, each one corresponding to a search.py run where I ran each simulation with a population size of 10 for 500 generations, each using a different seed:
 
 <p align="center">
 <img src="Images/PHC5.png" width=400 height=300>
 </p>
 
+# Methods
+
+# Constants
+
+# YouTube Link
 Here's a link to my video, which shows the difference between the random and evolved creature (which was cut for time to keep the video ~10 seconds):
 https://youtu.be/0P5wL5jHgcE
 
+# Limitations
+
+# Things I've Tried
+
+# Future Recommendations
+
+# How To Run Simulation
 In order to run one random simulation, run the following command:
 ```
 python solution.py
