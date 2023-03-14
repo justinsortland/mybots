@@ -96,7 +96,7 @@ Throughout the duration of the course, I have added many constants, some of whic
 * motorJointRange: this is a constant, which multiplied by the motor angle, determines how the joints in the creature move.
 
 # YouTube Link
-Here's a link to my video, which shows the difference between the random and evolved creature (which was cut for time to keep the video ~10 seconds):
+Here's a link to my video, which showcases two creatures before and after evolution, as well as explaining some of the logic as I did in this README. 
 [https://youtu.be/0P5wL5jHgcE](https://youtu.be/IDiJmB6Xa-g)
 
 # Limitations
