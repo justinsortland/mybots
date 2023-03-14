@@ -52,11 +52,23 @@ There were three possible mutations that I implemented for my creature (includin
   * 12.5% probability to add a link to an already existing link
   * 12.5% probability to remove an already existing link, making sure it has no other links after it or a leg branching out of it) 
 
+Note that these probabilities are just arbitraily based on which one is most effective in evolution based on my observations.
+
+Similarly to body and brain generation, I have included figures below detailing the processes of both mutation and evolution.
+
+<p align="center">
+<img src="Images/Mutation.png" width=400 height=300>
+</p>
+
+<p align="center">
+<img src="Images/Evolution.png" width=400 height=300>
+</p>
+
 # Fitness Curve
 Here is my graph containing my ten fitness curves, each one corresponding to a search.py run where I ran each simulation with a population size of 10 for 500 generations, each using a different seed:
 
 <p align="center">
-<img src="Images/PHC5.png" width=400 height=300>
+<img src="Images/FitnessCurve.png" width=400 height=300>
 </p>
 
 # Methods
