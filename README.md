@@ -8,13 +8,13 @@ In this assignment, I used solution.py to generate the 3D creature from asssignm
 The code randomly generates a set of links and then picking from random links in that set of links, randomly generates another set of links branching off that link. The resulting creature's morphology typically resembles a random blob of cubes as shown below.
 
 <p align="center">                                      
-<img src="Images/3DCreature1.png" width=250 height=250>                     
+<img src="Images/TeaserCreature.png" width=250 height=250>                     
 </p>                                                  
 
 # Teaser GIF
 Here is a fun GIF showing how the creature moves.
 <p align="center">                                      
-<img src="Images/3DCreature1.png" width=250 height=250>                     
+<img src="Images/TeaserGIF.gif" width=250 height=250>                     
 </p>  
                                                                               
 # Brain and Body Generation
@@ -71,9 +71,13 @@ Here is my graph containing my ten fitness curves, each one corresponding to a s
 <img src="Images/FitnessCurve.png" width=400 height=300>
 </p>
 
-# Methods
-
 # Constants
+Throughout the duration of the course, I have added many constants, some of which I don't use in the final project. Here is a list of the main constants I use.
+* sleepTime: This is automatically set to 1/1000
+* populationSize: This is the size of population per iteration
+* numberOfGenerations: This is the number of generations that will run per simulation.
+* gravity: here I defined gravityX, gravityY, and gravityZ to form the vector [gravityX, gravityY, gravityZ], which is set to [0,0,-9.8] to simulate Earth's gravity
+* motorJointRange: this is a constant, which multiplied by the motor angle, determines how the joints in the creature move.
 
 # YouTube Link
 Here's a link to my video, which shows the difference between the random and evolved creature (which was cut for time to keep the video ~10 seconds):
@@ -81,9 +85,17 @@ https://youtu.be/0P5wL5jHgcE
 
 # Limitations
 
-# Things I've Tried
+One technical limitation would be running the creature with more even more generations and randoms seeds and/or a higher population size, since this would make the evolution more random than it already is. Additionally, there are still some issues with movement within some of the creatures that I have been trying to tackle with the time I was given. However, due to the time constraint, I submitted what I could.
 
 # Future Recommendations
+
+To address these limitations, running the simulation with an even higher generation and population size, which would take A LOT of time, would add to evolution even more. Also, if I had more time, I would carefully looking into ways to make my movement more efficient since I struggled with it.
+
+# Things I've Tried in Debugging
+
+I've had MANY struggles in this final project. Firstly, due to my tight schedule, I only had so much time to try and fix the problems that I encountered, mainly in regards to creature movement and positioning. Despite countless hours debugging, I could only go so far, so while this iteration may not be the most perfect creature, I am still proud of it because I did absolutely everything I could with the time I was given. 
+
+Firstly, I made sure to look at 
 
 # How To Run Simulation
 In order to run one random simulation, run the following command:
