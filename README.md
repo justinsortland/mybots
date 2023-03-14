@@ -97,7 +97,7 @@ Throughout the duration of the course, I have added many constants, some of whic
 
 # YouTube Link
 Here's a link to my video, which shows the difference between the random and evolved creature (which was cut for time to keep the video ~10 seconds):
-https://youtu.be/0P5wL5jHgcE
+[https://youtu.be/0P5wL5jHgcE](https://youtu.be/IDiJmB6Xa-g)
 
 # Limitations
 
