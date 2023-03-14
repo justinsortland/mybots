@@ -14,7 +14,7 @@ The code randomly generates a set of links and then picking from random links in
 # Teaser GIF
 Here is a fun GIF showing how the creature moves. :)
 <p align="center">                                      
-<img src="Images/TeaserGIF.gif" width=250 height=250>                     
+<img src="Images/TeaserGIF.gif" width=350 height=250>                     
 </p>  
 
 # Fitness Function
