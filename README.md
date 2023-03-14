@@ -26,11 +26,11 @@ I defined my fitness function for my creature as the Euclidean distance between 
 I have included diagrams showcasing the types of links and joints that make up all of my creatures, both random and evolved, and a genotype to phenotype diagram as well, which showcases how the data structure encoding the information about my links and joints translates to creature generation.
 
 <p align="center">                                      
-<img src="Images/CreatureAnatomy.jpg" width=250 height=250>                     
+<img src="Images/CreatureAnatomy.jpg" width=250 height=350>                     
 </p>   
 
 <p align="center">                                      
-<img src="Images/GeneticEncoding.jpg" width=250 height=250>                     
+<img src="Images/GeneticEncoding.jpg" width=250 height=350>                     
 </p>   
                                                                               
 # Brain and Body Generation
@@ -48,11 +48,11 @@ Everything in regards to both body and brain generation was randomized from the 
 Additionally, I have provided detailed diagrams of both brain and body generation below.
 
 <p align="center">
-<img src="Images/BodyGeneration.jpg" width=400 height=300>
+<img src="Images/BodyGeneration.jpg" width=400 height=400>
 </p>
 
 <p align="center">
-<img src="Images/BrainGeneration.jpg" width=400 height=300>
+<img src="Images/BrainGeneration.jpg" width=400 height=400>
 </p>
 
 # Mutation and Evolution
@@ -73,11 +73,11 @@ Note that these probabilities are just arbitraily based on which one is most eff
 Similarly to body and brain generation, I have included figures below detailing the processes of both mutation and evolution.
 
 <p align="center">
-<img src="Images/Mutation.jpg" width=400 height=300>
+<img src="Images/Mutation.jpg" width=400 height=400>
 </p>
 
 <p align="center">
-<img src="Images/Evolution.jpg" width=400 height=300>
+<img src="Images/Evolution.jpg" width=400 height=400>
 </p>
 
 # Fitness Curve
