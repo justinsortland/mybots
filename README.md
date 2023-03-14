@@ -1,4 +1,4 @@
-# Final Project 
+# Final Project: Engineering Path
 
 In this assignment, I used solution.py to generate the 3D creature from asssignments 7-8, which has the following:
 1. Random number of links/cubes
