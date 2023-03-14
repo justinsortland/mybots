@@ -16,6 +16,10 @@ Here is a fun GIF showing how the creature moves.
 <p align="center">                                      
 <img src="Images/TeaserGIF.gif" width=250 height=250>                     
 </p>  
+
+# Fitness Function
+
+I defined my fitness function for my creature as the Euclidean distance between the initial x-coordinate of the creature and the final x-coordinate that the creature travelled to, and then used my Select function in ParallelHillClimber.py to select creatures with better fitness.
                                                                               
 # Brain and Body Generation
 Everything in regards to both body and brain generation was randomized from the number of cubes to the number of sensors and motors for the creature. The creature first starts out at an initial position of [0,0,1] with a randomized size vector as well as the joint position being based on the randomized size vector. Then, the following properties were randomized:
@@ -95,7 +99,14 @@ To address these limitations, running the simulation with an even higher generat
 
 I've had MANY struggles in this final project. Firstly, due to my tight schedule, I only had so much time to try and fix the problems that I encountered, mainly in regards to creature movement and positioning. Despite countless hours debugging, I could only go so far, so while this iteration may not be the most perfect creature, I am still proud of it because I did absolutely everything I could with the time I was given. 
 
-Firstly, I made sure to look at 
+I have done several things to make sure everything in my code is as logically sound as it could be:
+1. I made sure to look at my fitness function and adjusted it so that it represents the Euclidean distance travelled, as mentioned above, instead of just the x-coordinate of the creature. 
+
+2. I made sure that I was defining my joint and link positions carefully, since I know that this is a problem area for many. I made sure that both my joint and link positions for my root link and joint were absolute, whereas all the other link and joint positions were relative to each other. Notably, if I add add a new joint, that joint's position is relative to the joint before it, and if I add a new link, that link's position is relative to the joint connecting that link with the link before it.
+
+3. I carefully looked at how I was generating my brain and updating number of sensors, number of motors, the links thath and sensors and the links that had motors. Especially with regards to adding and removing links, I made sure that there were no inconsistences, such as forgetting to decrement the number of sensors after removing a sensorized link, that would affect my creature's movement.
+
+4. I tested my creature's movement by increasing my creature's maxForce to 1000 (FOR DEBUGGING PURPOSES ONLY! I changed it back to 150 after finding out the issue). I found that my creature moved under these conditions, so I narrowed down my issue to the sheer size of my creature. Thus, I limited the number of possible links to 7 and shrunk down the random size range from [0.6,1.2] to [0.25,1] to allow for more rectangular links, since I found that the more cubical links struggled to move, whereas the more rectangular links had less trouble with movement.
 
 # How To Run Simulation
 In order to run one random simulation, run the following command:
