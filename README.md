@@ -20,6 +20,18 @@ Here is a fun GIF showing how the creature moves.
 # Fitness Function
 
 I defined my fitness function for my creature as the Euclidean distance between the initial x-coordinate of the creature and the final x-coordinate that the creature travelled to, and then used my Select function in ParallelHillClimber.py to select creatures with better fitness.
+
+# Genetics: What is the Creature Made up of?
+
+I have included diagrams showcasing the types of links and joints that make up all of my creatures, both random and evolved, and a genotype to phenotype diagram as well, which showcases how the data structure encoding the information about my links and joints translates to creature generation.
+
+<p align="center">                                      
+<img src="Images/CreatureAnatomy.jpg" width=250 height=250>                     
+</p>   
+
+<p align="center">                                      
+<img src="Images/GeneticEncoding.jpg" width=250 height=250>                     
+</p>   
                                                                               
 # Brain and Body Generation
 Everything in regards to both body and brain generation was randomized from the number of cubes to the number of sensors and motors for the creature. The creature first starts out at an initial position of [0,0,1] with a randomized size vector as well as the joint position being based on the randomized size vector. Then, the following properties were randomized:
@@ -36,11 +48,11 @@ Everything in regards to both body and brain generation was randomized from the 
 Additionally, I have provided detailed diagrams of both brain and body generation below.
 
 <p align="center">
-<img src="Images/BodyGeneration.png" width=400 height=300>
+<img src="Images/BodyGeneration.jpg" width=400 height=300>
 </p>
 
 <p align="center">
-<img src="Images/BrainGeneration.png" width=400 height=300>
+<img src="Images/BrainGeneration.jpg" width=400 height=300>
 </p>
 
 # Mutation and Evolution
@@ -61,11 +73,11 @@ Note that these probabilities are just arbitraily based on which one is most eff
 Similarly to body and brain generation, I have included figures below detailing the processes of both mutation and evolution.
 
 <p align="center">
-<img src="Images/Mutation.png" width=400 height=300>
+<img src="Images/Mutation.jpg" width=400 height=300>
 </p>
 
 <p align="center">
-<img src="Images/Evolution.png" width=400 height=300>
+<img src="Images/Evolution.jpg" width=400 height=300>
 </p>
 
 # Fitness Curve
