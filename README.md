@@ -8,7 +8,7 @@ In this assignment, I used solution.py to generate the 3D creature from asssignm
 The code randomly generates a set of links and then picking from random links in that set of links, randomly generates another set of links branching off that link. The resulting creature's morphology typically resembles a random blob of cubes as shown below.
 
 <p align="center">                                      
-<img src="Images/TeaserCreature.png" width=250 height=250>                     
+<img src="Images/TeaserCreature.png" width=350 height=250>                     
 </p>                                                  
 
 # Teaser GIF
