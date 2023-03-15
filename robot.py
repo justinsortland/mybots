@@ -2,6 +2,7 @@ import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import os
 import constants as c
+import numpy
 
 from sensor import SENSOR
 from motor import MOTOR
@@ -48,25 +49,21 @@ class ROBOT:
         self.nn.Update()
         # self.nn.Print()
 
-    def Get_Fitness(self, id):
-        stateOfLinkZero = p.getLinkState(self.robot,0)
+    def Get_Fitness(self):
+        stateOfLinkZero = p.getBasePositionAndOrientation(self.robot)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
+        return xCoordinateOfLinkZero
 
-        # xCoordinates = []
-
-        # for i in range(p.getNumJoints(self.robot)):
-        #     stateOfLink = p.getLinkState(self.robot,i)
-        #     positionOfLink = stateOfLink[0]
-
-        #     xCoordinateOfLink = positionOfLink[0]
-
-        #     xCoordinates.append(xCoordinateOfLink)
-
-        # xCenterOfMass = sum(xCoordinates) / len(xCoordinates)
+    def Write_Fitness(self, fitness1, fitness2, id):
+        dist = fitness1*fitness1 + fitness2*fitness2
+        dist = numpy.sqrt(dist)
+        # Mention in README how write_fitness like this
+        # Restraint limbs can only be connected to 2 other ones
 
         f = open("tmp" + str(id) + ".txt", "w")
-        f.write(str(xCoordinateOfLinkZero))
-        # f.write(str(xCenterOfMass))
+        f.write(str(dist))
         f.close()
         os.system("mv tmp" + str(id) + ".txt " + "fitness" + str(id) + ".txt")
+
+

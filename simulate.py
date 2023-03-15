@@ -6,5 +6,7 @@ directOrGUI = sys.argv[1]
 solutionID = sys.argv[2]
 
 simulation = SIMULATION(directOrGUI, solutionID)
+fitness1 = simulation.Get_Fitness()
 simulation.Run()
-simulation.Get_Fitness(solutionID)
+fitness2 = simulation.Get_Fitness()
+simulation.Write_Fitness(fitness1,fitness2,solutionID)

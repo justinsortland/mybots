@@ -21,22 +21,24 @@ class PARALLEL_HILL_CLIMBER:
         self.maxArray = numpy.zeros(c.numberOfGenerations+1)
         self.xvalues = numpy.zeros(c.numberOfGenerations+1)
 
+        self.bestLastParent = None
+
     def Evolve(self):
-        self.Evaluate(self.parents)
-        # self.parent.Evaluate("GUI")
+        self.Evaluate(self.parents,1)
         for currentGeneration in range(c.numberOfGenerations):
             if currentGeneration == 0:
                 for parent in self.parents.keys():
-                    self.parents[parent].Start_Simulation("GUI")
+                    self.parents[parent].Start_Simulation("GUI",0)
                     break
-            self.Evolve_For_One_Generation(currentGeneration)
+            self.Evolve_For_One_Generation(currentGeneration,0)
     
-    def Evolve_For_One_Generation(self, currentGeneration):
+    def Evolve_For_One_Generation(self, currentGeneration, flag):
         self.Spawn()
         self.Mutate()
-        self.Evaluate(self.children)
+        self.Evaluate(self.children,flag)
         self.Print(currentGeneration)
         self.Select(currentGeneration)
+        # self.Show_Child()
 
     def Spawn(self):
         self.children = {}
@@ -53,7 +55,7 @@ class PARALLEL_HILL_CLIMBER:
         for i in self.children.keys():
             self.children[i].Mutate()
             self.children[i].leg_id = 0
-            self.children[i].Generate_Brain()
+            # self.children[i].Generate_Brain()
 
     def Print(self, currentGeneration):
         print("")
@@ -78,29 +80,31 @@ class PARALLEL_HILL_CLIMBER:
                 best_fitness = self.parents[parent].fitness
                 best_parent = self.parents[parent]
         
-        best_parent.Start_Simulation("GUI")
+        # self.bestLastParent = best_parent
+        # with open("BestRobot.pickle", self.bestLastParent.fitness, "\n") as b:
+        #     pickle.dump(self.bestLastParent, b, pickle.HIGHEST_PROTOCOL)
+
+        best_parent.Start_Simulation("GUI",0)
         # self.parent.Evaluate("GUI")
 
-    def Evaluate(self, solutions):
+    def Show_Child(self):
+        for i in self.parents.keys():
+            self.children[i].Start_Simulation("GUI",0)
+            break
+
+    def Evaluate(self, solutions, flag):
         for i in solutions.keys():
-            solutions[i].Start_Simulation("DIRECT")
+            solutions[i].Start_Simulation("DIRECT", flag)
             
         for i in solutions.keys():
             solutions[i].Wait_For_Simulation_To_End()
 
-    def Plot_Fitness(self):
+    def Get_Fitness_Array(self):
         for i in range(c.numberOfGenerations+1):
             maxFitness = max(self.fitnessArray[i])
             self.maxArray[i] = maxFitness
             self.xvalues[i] = i
-
-        print(self.maxArray)
-
-        plt.plot(self.xvalues,self.maxArray,label='PHC #5')
-        plt.xlabel('Number of Generations')
-        plt.ylabel('Fitness Value')
-        plt.legend()
-        plt.show()
-
-        
-
+        return self.maxArray
+    
+    def Get_Number_Of_Generations_Array(self):
+        return self.xvalues

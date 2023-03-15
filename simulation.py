@@ -49,8 +49,11 @@ class SIMULATION:
             # time.sleep(1/500)
             # print(i)
     
-    def Get_Fitness(self, id):
-        self.robot.Get_Fitness(id)
+    def Get_Fitness(self):
+        return self.robot.Get_Fitness()
+
+    def Write_Fitness(self, fitness1, fitness2, id):
+        self.robot.Write_Fitness(fitness1, fitness2, id)
     
     def __del__(self):
         p.disconnect()

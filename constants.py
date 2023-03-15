@@ -18,11 +18,11 @@ frontLegPhaseOffset = 0
 
 sleepTime = 1/1000
 
-populationSize = 7
-numberOfGenerations = 60
+populationSize = 5
+numberOfGenerations = 5
 
 gravityX = 0
 gravityY = 0
 gravityZ = -9.8
 
-motorJointRange = 0.4
+motorJointRange = 0.7
