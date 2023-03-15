@@ -103,6 +103,8 @@ Here's a link to my video, which showcases two creatures before and after evolut
 
 One technical limitation would be running the creature with more even more generations and randoms seeds and/or a higher population size, since this would make the evolution more random than it already is. Additionally, there are still some issues with movement within some of the creatures that I have been trying to tackle with the time I was given. However, due to the time constraint, I submitted what I could.
 
+Also, with regards to saving my best creature, I got an error whenever I tried pickling that was related to the pyrosim library and could not be resolved after countless hours of trying, so I unfortunately could not get a best creature to be saved. 
+
 # Future Recommendations
 
 To address these limitations, running the simulation with an even higher generation and population size, which would take A LOT of time, would add to evolution even more. Also, if I had more time, I would carefully looking into ways to make my movement more efficient since I struggled with it.
